@@ -1,4 +1,4 @@
-package com.arunveersingh.sprindata;
+package com.arunveersingh.springdata;
 
 import java.util.Properties;
 
@@ -17,7 +17,13 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-
+/**
+ * This class demonstrates the Java Configuration way of configuring Spring Data - with JPA.
+ * This spring-data-learning project may demonstrates other ways of configuring Spring Data, so don't get confused by that. 
+ * I am putting in this comment for me :) :)
+ * @author arunveersingh9@gmail.com
+ *
+ */
 @Configuration
 @EnableJpaRepositories("com.arunveersingh.springdata")
 @EnableTransactionManagement
@@ -37,7 +43,7 @@ public class DataConfiguration {
 		
 		Properties props = new Properties();
 		props.put("hibernate.hbm2ddl.auto", "create-drop");
-		props.put("hibernate.dialect", "org.hibenate.dialect.HSQLDialect");
+		props.put("hibernate.dialect", "org.hibernate.dialect.HSQLDialect");
 		
 		LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
 		factory.setDataSource(dataSource());

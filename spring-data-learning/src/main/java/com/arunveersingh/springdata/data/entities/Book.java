@@ -1,4 +1,4 @@
-package com.arunveersingh.sprindata.data.entities;
+package com.arunveersingh.springdata.data.entities;
 
 import java.util.Date;
 
@@ -16,9 +16,17 @@ public class Book {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long bookId;
 	private String title;
-	private Date publisDate;
+	private Date publisDate; // I know it should be publishDate but leaving it as such as this is just a demo project
 	private int numberOfPages;
 	private Double price;
+	public Book(String title, Date publisDate, int numberOfPages, Double price) {
+
+		this.setTitle(title);
+		this.setPublisDate(publisDate);
+		this.setNumberOfPages(numberOfPages);
+		this.setPrice(price);
+	
+	}
 	public Long getBookId() {
 		return bookId;
 	}
