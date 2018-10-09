@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="spring-data-boot/src/main/java"/>
+	<classpathentry kind="src" path="spring-data-boot/src/test/java"/>
+	<classpathentry kind="src" path="spring-data-learning-derived-queries/src/main/java"/>
+	<classpathentry kind="src" path="spring-data-learning-xml/src/main/java"/>
+	<classpathentry kind="src" path="spring-data-learning/src/main/java"/>
+	<classpathentry kind="lib" path="spring-data-boot/.mvn/wrapper/maven-wrapper.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
