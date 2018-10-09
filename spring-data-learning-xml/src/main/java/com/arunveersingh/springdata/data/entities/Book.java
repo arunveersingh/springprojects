@@ -19,6 +19,12 @@ public class Book {
 	private Date publisDate; // I know it should be publishDate but leaving it as such as this is just a demo project
 	private int numberOfPages;
 	private Double price;
+	
+	
+	
+	public Book() {
+		super();
+	}
 	public Book(String title, Date publisDate, int numberOfPages, Double price) {
 
 		this.setTitle(title);
@@ -56,6 +62,11 @@ public class Book {
 	}
 	public void setPrice(Double price) {
 		this.price = price;
+	}
+	@Override
+	public String toString() {
+		return "Book [bookId=" + bookId + ", title=" + title + ", publisDate=" + publisDate + ", numberOfPages="
+				+ numberOfPages + ", price=" + price + "]";
 	}
 	
 	
