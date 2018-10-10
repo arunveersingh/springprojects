@@ -5,3 +5,4 @@ insert into book(bookId, title, publisDate, numberOfPages, price) values (4, 'D'
 insert into book(bookId, title, publisDate, numberOfPages, price) values (5, 'E', sysdate, 5, 5);
 insert into book(bookId, title, publisDate, numberOfPages, price) values (6, 'F', sysdate, 6, 6);
 insert into book(bookId, title, publisDate, numberOfPages, price) values (7, 'G', sysdate, 7, 7);
+--insert into book(bookId, title, publisDate, numberOfPages, price) values (8, 'A', sysdate, 8, 8);
