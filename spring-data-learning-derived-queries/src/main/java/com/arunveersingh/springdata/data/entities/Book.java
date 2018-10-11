@@ -2,16 +2,19 @@ package com.arunveersingh.springdata.data.entities;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="BOOK")
 public class Book {
-	
+	//bookId, title, publisDate, numberOfPages, price, authorId
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long bookId;
@@ -19,6 +22,10 @@ public class Book {
 	private Date publisDate; // I know it should be publishDate but leaving it as such as this is just a demo project
 	private int numberOfPages;
 	private Double price;
+	
+	@ManyToOne
+	@JoinColumn(name="authorId")
+	private Author authorId;
 	
 	
 	
@@ -63,12 +70,17 @@ public class Book {
 	public void setPrice(Double price) {
 		this.price = price;
 	}
+	
+	public Author getAuthorId() {
+		return authorId;
+	}
+	public void setAuthorId(Author authorId) {
+		this.authorId = authorId;
+	}
 	@Override
 	public String toString() {
 		return "Book [bookId=" + bookId + ", title=" + title + ", publisDate=" + publisDate + ", numberOfPages="
-				+ numberOfPages + ", price=" + price + "]";
+				+ numberOfPages + ", price=" + price + ", authorId=" + authorId + "]";
 	}
 	
-	
-
 }
