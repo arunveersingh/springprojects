@@ -1,11 +1,11 @@
 package com.arunveersingh.springdata;
 
-import java.util.Date;
 import java.util.List;
 
 import javax.persistence.NamedQuery;
 
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Slice;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -51,5 +51,6 @@ public interface BookRepository extends JpaRepository<Book, Long> {
 	List<Book> queryThreeNamed(@Param("title") String title);
 	
 	List<Book> findByNumberOfPagesGreaterThan(int numberOfPages, Pageable pageable);
-
+	
+	Slice<Book> findByNumberOfPagesLessThan(int numberOfPages, Pageable pageable);
 }

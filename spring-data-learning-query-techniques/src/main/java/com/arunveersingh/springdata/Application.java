@@ -1,11 +1,8 @@
 package com.arunveersingh.springdata;
 
-import java.util.Collection;
-import java.util.Date;
-import java.util.List;
-
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Slice;
 
 import com.arunveersingh.springdata.data.entities.Book;
 
@@ -28,9 +25,10 @@ public class Application {
 		
 		System.out.println("************");
 		repo.findByNumberOfPagesGreaterThan(210, new PageRequest(1, 2)).forEach(b->System.out.println(b));
-
 		
-
+		System.out.println("****** SLICE ******");
+		Slice<Book> slice = repo.findByNumberOfPagesLessThan(210, new PageRequest(1, 2));
+		slice.getContent().stream().forEach(b->System.out.println(b));
 	}
 
 }
