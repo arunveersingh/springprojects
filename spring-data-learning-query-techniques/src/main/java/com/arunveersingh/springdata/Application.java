@@ -4,8 +4,6 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Slice;
 
-import com.arunveersingh.springdata.data.entities.Book;
-
 public class Application {
 
 	public static void main(String[] args) {
@@ -29,6 +27,7 @@ public class Application {
 		System.out.println("****** SLICE ******");
 		Slice<Book> slice = repo.findByNumberOfPagesLessThan(210, new PageRequest(1, 2));
 		slice.getContent().stream().forEach(b->System.out.println(b));
+
 	}
 
 }

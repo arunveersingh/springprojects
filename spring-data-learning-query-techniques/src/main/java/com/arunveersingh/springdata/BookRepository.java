@@ -53,4 +53,5 @@ public interface BookRepository extends JpaRepository<Book, Long> {
 	List<Book> findByNumberOfPagesGreaterThan(int numberOfPages, Pageable pageable);
 	
 	Slice<Book> findByNumberOfPagesLessThan(int numberOfPages, Pageable pageable);
+
 }
