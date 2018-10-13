@@ -1,6 +1,5 @@
 package com.arunveersingh.springdata;
 
-import java.util.Date;
 import java.util.List;
 
 import javax.persistence.NamedQuery;
@@ -51,5 +50,4 @@ public interface BookRepository extends JpaRepository<Book, Long> {
 	List<Book> queryThreeNamed(@Param("title") String title);
 	
 	List<Book> findByNumberOfPagesGreaterThan(int numberOfPages, Pageable pageable);
-
 }
