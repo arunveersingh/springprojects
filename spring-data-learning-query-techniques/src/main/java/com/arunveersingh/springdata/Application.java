@@ -28,7 +28,7 @@ public class Application {
 		
 		System.out.println("****** SLICE ******");
 		Slice<Book> slice = repo.findByNumberOfPagesLessThan(210, new PageRequest(1, 2));
-		slice.getContent().stream().forEach(b->System.out.println(b));
+		slice.getContent().stream().forEach(b->System.out.println(b));;
 
 	}
 
