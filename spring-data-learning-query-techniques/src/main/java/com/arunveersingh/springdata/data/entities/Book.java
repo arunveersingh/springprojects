@@ -3,6 +3,7 @@ package com.arunveersingh.springdata.data.entities;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -12,11 +13,23 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
+import org.springframework.data.annotation.CreatedBy;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedBy;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+/**
+ * this class has @EntityListeners for auditing purpose. Auditing Columns works with this listener.
+ * @author SinghAru
+ *
+ */
 @Entity
 @Table(name="BOOK")
 @NamedQueries({@NamedQuery(name="Book.queryOneNamed", query="select b from Book b"),
 @NamedQuery(name="Book.queryTwoNamed", query="select b from Book b where b.numberOfPages > ?1"),
 @NamedQuery(name="Book.queryThreeNamed", query="select b from Book b where b.title = :title")})
+@EntityListeners(AuditingEntityListener.class)
 public class Book {
 	//bookId, title, publisDate, numberOfPages, price, authorId
 	@Id
@@ -26,6 +39,18 @@ public class Book {
 	private Date publisDate; // I know it should be publishDate but leaving it as such as this is just a demo project
 	private int numberOfPages;
 	private Double price;
+	
+	/**
+	 * Auditing Columns
+	 */
+	@CreatedBy
+	private String createdBy;
+	@LastModifiedBy
+	private String lastModifiedBy;
+	@CreatedDate
+	private Date createdDate;
+	@LastModifiedDate
+	private Date lastModifiedDate;
 	
 	@ManyToOne
 	@JoinColumn(name="authorId")
@@ -81,10 +106,40 @@ public class Book {
 	public void setAuthorId(Author authorId) {
 		this.authorId = authorId;
 	}
+	
+	
+	public String getCreatedBy() {
+		return createdBy;
+	}
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
+	public String getLastModifiedBy() {
+		return lastModifiedBy;
+	}
+	public void setLastModifiedBy(String lastModifiedBy) {
+		this.lastModifiedBy = lastModifiedBy;
+	}
+	public Date getCreatedDate() {
+		return createdDate;
+	}
+	public void setCreatedDate(Date createdDate) {
+		this.createdDate = createdDate;
+	}
+	public Date getLastModifiedDate() {
+		return lastModifiedDate;
+	}
+	public void setLastModifiedDate(Date lastModifiedDate) {
+		this.lastModifiedDate = lastModifiedDate;
+	}
+	
 	@Override
 	public String toString() {
 		return "Book [bookId=" + bookId + ", title=" + title + ", publisDate=" + publisDate + ", numberOfPages="
-				+ numberOfPages + ", price=" + price + ", authorId=" + authorId + "]";
+				+ numberOfPages + ", price=" + price + ", createdBy=" + createdBy + ", lastModifiedBy=" + lastModifiedBy
+				+ ", createdDate=" + createdDate + ", lastModifiedDate=" + lastModifiedDate + ", authorId=" + authorId
+				+ "]";
 	}
+	
 	
 }
